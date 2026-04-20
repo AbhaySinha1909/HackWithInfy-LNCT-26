@@ -35,7 +35,7 @@ Ifk 1 she has to win at least 1 of the 2 important contests. She would choose to
 
 Complete the luck Balance function in the editor below.
 
-luckBalance has the following parameter(s):
+luckBalance has the following parameters:
 
 mtk. the number of important contests Lena can lose
 
