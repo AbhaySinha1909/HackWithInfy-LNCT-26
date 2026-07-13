@@ -1,18 +1,13 @@
 class Solution:
     def isValid(self, s: str) -> bool:
+        track = {")" : "(", "}":"{", "]": "["}
         stack = []
-        mapping = {')': '(', '}': '{', ']': '['}
-        
-        for char in s:
-            if char in mapping.values():  
-                stack.append(char)
-            elif char in mapping:  
-                if not stack or stack[-1] != mapping[char]:
-                    return False
-                stack.pop()
+        for ch in s:
+            if ch in "[{(":
+                stack.append(ch)
             else:
-               
-                return False
-        
-        return not stack 
-        
+                if len(stack) > 0 and stack[-1] == track[ch]:
+                    stack.pop()
+                else:
+                    stack.append(ch)
+        return not stack
