@@ -1,12 +1,15 @@
 class Solution:
     def maximumLengthSubstring(self, s: str) -> int:
-        max_length = 0
-        for i in range(len(s)):
-            for j in range(len(s)-1, i, -1):
-                p = s[i:j+1]
-                n = Counter(p)
-                b = [x for x in n.values()]
-                if max(b) <= 2:
-                    max_length = max(max_length, sum(b))
+        n = len(s)
+        i = 0
+        freq = defaultdict(int)
+        result = 0
+        for j in range(n):
+            freq[s[j]] += 1
+
+            while i < j and freq[s[j]] > 2:
+                freq[s[i]] -= 1
+                i += 1
+            result = max(result, j - i + 1)
         
-        return max_length
+        return result
