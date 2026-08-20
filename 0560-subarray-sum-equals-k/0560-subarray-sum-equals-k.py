@@ -11,8 +11,7 @@ class Solution:
 
         for i in range(n):
             summ += nums[i]
-            freq = freq_map[summ - k]
-            count += freq
+            count += freq_map[summ - k]
             freq_map[summ] += 1
         
         return count
