@@ -20,8 +20,8 @@ class Solution:
                 continue
             
             merged.append([start1, end1])
-            start1 = intervals[i][0]
-            end1 = intervals[i][1]
+            start1 = start2
+            end1 = end2
 
         if [start1, end1] not in merged:
             merged.append([start1, end1])
